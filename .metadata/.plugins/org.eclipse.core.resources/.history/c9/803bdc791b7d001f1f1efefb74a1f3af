@@ -1,0 +1,31 @@
+package com.employee.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employee.entity.Employee;
+import com.employee.service.EmployeeService;
+
+@RestController
+public class EmployeeController {
+	
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@GetMapping("/api/v1/employees")
+	public ResponseEntity<List<Employee>> fetchAllEmployees() {
+		return ResponseEntity.ok(employeeService.fetchAllEmployees());
+	}
+	
+	@PostMapping("/api/v1/employees")
+	public ResponseEntity<Employee> createEmployee() {
+		return ResponseEntity.ok(employeeService.createEmployee());
+	}
+	
+
+}
