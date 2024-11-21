@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+    border: 1px solid currentColor;
+    text-align: center;
+
+  }
+  .mdc-notched-outline {
+    .mdc-notched-outline--no-label{
+        align-items: center;
+        height: 2.5rem;
+    }
+  }
+.mat-cell{
+    height: 30px !important;
+}
+ 
+  .mat-mdc-form-field-flex {
+    align-items: center;
+    height: 2.5rem;
+   }
+    
+  th.mat-sort-header-sorted {
+    color: black;
+  }

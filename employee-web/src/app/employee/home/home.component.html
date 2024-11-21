@@ -1,0 +1,59 @@
+<div class="container" style="marin-top:20px;margin-left: 30px;width: 777px;">
+    <br>
+    <h3 style="color: blueviolet;text-align: center;"><strong>Full Stack with Angular 18 Spring Boot & MySQL</strong></h3>
+    <br>
+    <mat-form-field>
+        <input (input)="searchEmployee(filter.value)" matInput placeholder="Search Employee Here" type="text" #filter>
+    </mat-form-field>
+    <button (click)="openDialog(employee)" mat-flat-button style="width: 100px;float: right;margin:15px">Add +</button>
+    <br>
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource" matSort>
+      
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+          <!-- Position Column -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+            <mat-cell *matCellDef="let employee"> {{employee.id}} </mat-cell>
+          </ng-container>
+      
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let employee"> {{employee.name}} </mat-cell>
+          </ng-container>
+      
+          <!-- Weight Column -->
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+            <mat-cell *matCellDef="let employee"> {{employee.email}} </mat-cell>
+          </ng-container>
+      
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="salary">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Salary </mat-header-cell>
+            <mat-cell *matCellDef="let employee"> {{employee.salary}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+            <mat-cell *matCellDef="let employee"> <button mat-flat-button (click)="openDialog(employee)" style="height: 27px;width: auto;">Edit</button> </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+            <mat-cell *matCellDef="let employee"> <button (click)="deleteEmployee(employee.id)" mat-flat-button style="height: 27px;width: auto;" color="warn">Delete</button> </mat-cell>
+          </ng-container>
+      
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let employees; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator
+                 [pageSize]="10"
+                 [pageSizeOptions]="[3, 6, 9]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+      </div>
+</div>

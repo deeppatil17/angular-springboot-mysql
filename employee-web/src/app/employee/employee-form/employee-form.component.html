@@ -1,0 +1,31 @@
+<div class="conatiner" style="width:350px">
+
+    <div>
+       <button mat-icon-button style="float: right;margin:15px">
+        <mat-icon style="color:red">close</mat-icon>
+       </button>
+    </div>
+    <div mat-dialog-title><h3 style="color:blueviolet;text-align: center;">Employee Form</h3></div>
+    <div mat-dialog-content>
+        <mat-form-field>
+            <input matInput [(ngModel)]="data.name" type="text" placeholder="Enter name">
+            <mat-icon fontIcon="person" matSuffix></mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  [(ngModel)]="data.email" type="text" placeholder="Enter email">
+            <mat-icon fontIcon="email" matSuffix></mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  [(ngModel)]="data.salary" type="number" placeholder="Enter salary">
+            <mat-icon fontIcon="salary" matSuffix></mat-icon>
+        </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions align="center">
+        <button (click)="addOrEditEmployee(data)" mat-flat-button [mat-dialog-close]="data">Submit</button>
+        <button mat-flat-button mat-dialog-close="true" color="warn">Cancel</button>
+    </div>
+
+</div>
